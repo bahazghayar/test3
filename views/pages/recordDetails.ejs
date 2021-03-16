@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div>
+
+            <p>Country: <%= data.country %>
+            </p>
+            <p>Total Confirmed: <%= data.totalconfirmed %>
+            </p>
+            <p>Total Deaths: <%= data.totaldeaths %>
+            </p>
+            <p>Total Recovered: <%= data.totalrecovered %>
+            </p>
+            <p>Date: <%= data.date %>
+            </p>
+             
+            <button id="updateBtn">Update Details</button>
+
+            <div id="updateForm">
+            <form action="/updateRecordDetails/<%=data.id%>?_method=put" method="POST">
+                <input type="" name="country" value="<%= data.country  %> ">
+                <input type="" name="totalconfirmed" value="<%= data.totalconfirmed %>">
+                <input type="" name="totaldeaths" value="<%= data.totaldeaths %>">
+                <input type="" name="totalrecovered" value="<%= data.totalrecovered %>">
+                <input type="" name="date" value="<%= data.date %>">
+
+                <input type="submit" value="Update">
+
+            </form>
+            </div>
+
+            <form action="/deleteRecordDetails/<%=data.id%>?_method=delete" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>
